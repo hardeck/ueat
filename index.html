@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>U-EAT JEDZENIE NA TWOIM KAMPUSIE</title>
+
+  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="css/simple-sidebar.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
+  <script src="js/jquery.js"></script>
+  <script src="js/buttons.js"></script>
+  <!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
+
+
+  <!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
+  <script src="https://www.gstatic.com/firebasejs/6.5.0/firebase-app.js"></script>
+
+  <!-- Add Firebase products that you want to use -->
+  <script src="https://www.gstatic.com/firebasejs/6.5.0/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/6.5.0/firebase-firestore.js"></script>
+
+
+  <!-- The core Firebase JS SDK is always required and must be listed first -->
+
+<script>
+  // Your web app's Firebase configuration
+  var imie = ''
+  var nazwisko = ''
+  var telefon = ''
+  var firebaseConfig = {
+    apiKey: "AIzaSyDmAXCWQ5asb3mY2amA3nxJlcikR048dCE",
+    authDomain: "ueat-28a02.firebaseapp.com",
+    databaseURL: "https://ueat-28a02.firebaseio.com",
+    projectId: "ueat-28a02",
+    storageBucket: "ueat-28a02.appspot.com",
+    messagingSenderId: "659016819457",
+    appId: "1:659016819457:web:b1227228c1504121"
+  };
+  // Initialize Firebase
+  var app= firebase.initializeApp(firebaseConfig);
+  var db = firebase.firestore(app);
+  var provider = new firebase.auth.FacebookAuthProvider();
+  provider.addScope("user_birthday");
+
+
+</script>
+
+</head>
+
+<body>
+
+ <div class="d-flex" id="wrapper">
+
+    <!-- Sidebar -->
+    <div class="bg-dark" id="sidebar-wrapper">
+      <div class="sidebar-heading"><img src="img/logo.png" id="logo" width="200px"></img></div>
+      <div class="list-group list-group-flush">
+        <a href="#home" class="list-group-item list-group-item-action bg-light">HOME</a>
+        <a href="#aboutus" class="list-group-item list-group-item-action bg-light">O NAS</a>
+        <a href="#menu" class="list-group-item list-group-item-action bg-light">MENU</a>
+        <a href="#" class="list-group-item list-group-item-action bg-light">KONTAKT</a>
+      </div>
+    </div>
+    <!-- /#sidebar-wrapper -->
+
+    <!-- Page Content -->
+    <div id="page-content-wrapper">
+
+      <nav class="navbar navbar-expand-lg navbar-light bg-dark" id="top-nav">
+        <button class="btn btn-primary add-button" id="menu-toggle">Menu</button>
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+            <li class="nav-item active">
+              <a class="nav-link"  id="koszyk" href="#basketModal" data-toggle="modal" style="color: white">KOSZYK<span class="basket item-counter">0</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#login-modal" data-toggle='modal' style="color: white" id="zaloguj">ZALOGUJ</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+      <div class="container-fluid" id="home">
+        <h1 class="mt-4" id="main_head" >U-EAT <br>JEDZENIE NA TWOIM KAMPUSIE</h1>
+      </div>
+	  <div class="container-fluid" id="aboutus">
+			<p><b>Głodny? Świetnie trafiłeś!</b></p>
+			<p>U nas możesz zamówić pyszne przekąski na daną godzinę.
+			Kończy Ci się wykład za 30 min? Wiesz, że w środę masz przerwę o 13:30 i będziesz czuł ssanie w żołądku? Nasza aplikacja jest dla Ciebie! W prosty sposób wybierz to, na co masz ochotę i godzinę, o której chcesz zjeść ciepłe danie, a my dołożymy wszelkich starań abyś TY zaspokoił swoje głodowe potrzeby!
+			Działamy na terenie Kampusu UEK więc jeżeli jesteś studentem czy też pracujesz w okolicy, ZAPRASZAMY!
+			Wybierz! -> Zapłać! -> Odbierz!</p>
+	  </div>
+	  <div class="container-fluid" id="menu">
+			<!-- Zakładki -->
+			<div id="menu-tabs">
+			<ul class="nav nav-tabs">
+			  <li class="nav-item active"><a href="#kebaby" class="menu-head" data-toggle="tab">Kebaby </a></li>
+			  <li class="nav-item"><a href="#burgery"  class="menu-head" data-toggle="tab"> Burgery </a></li>
+			  <li class="nav-item"><a href="#zapiekanki"  class="menu-head" data-toggle="tab"> Zapiekanki </a></li>
+			  <li class="nav-item"><a href="#others" class="menu-head" data-toggle="tab"> Pozostałe </a></li>
+			</ul>
+			</div>
+
+			<!-- Zawartość zakładek -->
+			<div class="tab-content">
+			  <div class="tab-pane active" id="kebaby">
+				<ul class="list-group">
+				  <li class="list-group-item">
+					<div class="row">
+						<div class="col-9">Kebab w bułce wołowy </div>
+						<div class="col-3"><button class="btn btn-primary add-button" data-toggle="modal"  data-target="#myModal"><i class="fas fa-shopping-basket"> 14zł</i></button>
+					</div>
+				  </li>
+				  <li class="list-group-item">
+					<div class="row">
+						<div class="col-9" id="kebdrob">Kebab w bułce drobiowy </div>
+						<div class="col-3"><button class="btn btn-primary add-button" data-toggle="modal"  data-target="#myModal"><i class="fas fa-shopping-basket"> 13zł</i></button>
+					</div>
+				  </li>
+				  <li class="list-group-item">
+					<div class="row">
+						<div class="col-9">Tortilla wołowa </div>
+						<div class="col-3"><button class="btn btn-primary add-button" data-toggle="modal"  data-target="#myModal"><i class="fas fa-shopping-basket"> 15zł</i></button>
+					</div>
+				  </li>
+				  <li class="list-group-item">
+					<div class="row">
+						<div class="col-9">Tortilla drobiowa </div>
+						<div class="col-3"><button class="btn btn-primary add-button" data-toggle="modal"  data-target="#myModal"><i class="fas fa-shopping-basket"> 14zł</i></button>
+					</div>
+				  </li>
+				  <li class="list-group-item">
+					<div class="row">
+						<div class="col-9">Tortilla wołowa z frytkami </div>
+						<div class="col-3"><button class="btn btn-primary add-button" data-toggle="modal"  data-target="#myModal"><i class="fas fa-shopping-basket"> 16zł</i></button>
+					</div>
+				  </li>
+				  <li class="list-group-item">
+					<div class="row">
+						<div class="col-9">Tortilla drobiowa z frytkami </div>
+						<div class="col-3"><button class="btn btn-primary add-button" data-toggle="modal"  data-target="#myModal"><i class="fas fa-shopping-basket"> 15zł</i></button>
+					</div>
+				  </li>
+				</ul>
+			  </div>
+			  <div class="tab-pane" id="burgery">
+			  <ul class="list-group">
+				  <li class="list-group-item">
+					<div class="row">
+						<div class="col-9">Burger classic</div>
+						<div class="col-3"><button class="btn btn-primary add-button" data-toggle="modal"  data-target="#myModal"><i class="fas fa-shopping-basket"> 14zł</i></button>
+					</div>
+				  </li>
+				  <li class="list-group-item">
+					<div class="row">
+						<div class="col-9">Cheeseburger </div>
+						<div class="col-3"><button class="btn btn-primary add-button" data-toggle="modal"  data-target="#myModal"><i class="fas fa-shopping-basket"> 15zł</i></button>
+					</div>
+				  </li>
+				  <li class="list-group-item">
+					<div class="row">
+						<div class="col-9">Burger BBQ </div>
+						<div class="col-3"><button class="btn btn-primary add-button" data-toggle="modal"  data-target="#myModal"><i class="fas fa-shopping-basket"> 16zł</i></button>
+					</div>
+				  </li>
+				  <li class="list-group-item">
+					<div class="row">
+						<div class="col-9">Burger blue cheese </div>
+						<div class="col-3"><button class="btn btn-primary add-button" data-toggle="modal"  data-target="#myModal"><i class="fas fa-shopping-basket"> 18zł</i></button>
+					</div>
+				  </li>
+				  <li class="list-group-item">
+					<div class="row">
+						<div class="col-9">Burger wegetariański</div>
+						<div class="col-3"><button class="btn btn-primary add-button" data-toggle="modal"  data-target="#myModal"><i class="fas fa-shopping-basket"> 14zł</i></button>
+					</div>
+				  </li>
+				</ul>
+			  </div>
+			  <div class="tab-pane" id="zapiekanki">
+				  <ul class="list-group">
+					  <li class="list-group-item">
+						<div class="row">
+							<div class="col-9">Zapiekanka</div>
+							<div class="col-3"><button class="btn btn-primary add-button" data-toggle="modal"  data-target="#myModal"><i class="fas fa-shopping-basket"> 7 zł</i></button>
+						</div>
+					  </li>
+					  <li class="list-group-item">
+						<div class="row">
+							<div class="col-9">Zapiekanka z salami </div>
+							<div class="col-3"><button class="btn btn-primary add-button" data-toggle="modal"  data-target="#myModal"><i class="fas fa-shopping-basket"> 8 zł</i></button>
+						</div>
+					  </li>
+					  <li class="list-group-item">
+						<div class="row">
+							<div class="col-9">Zapiekanka z szynką </div>
+							<div class="col-3"><button class="btn btn-primary add-button" data-toggle="modal"  data-target="#myModal"><i class="fas fa-shopping-basket"> 9 zł</i></button>
+						</div>
+					  </li>
+					  <li class="list-group-item">
+						<div class="row">
+							<div class="col-9">Zapiekanka z boczkiem </div>
+							<div class="col-3"><button class="btn btn-primary add-button" data-toggle="modal"  data-target="#myModal"><i class="fas fa-shopping-basket"> 9 zł</i></button>
+						</div>
+					  </li>
+					  <li class="list-group-item">
+						<div class="row">
+							<div class="col-9">Zapiekanka z kurczakiem </div>
+							<div class="col-3"><button class="btn btn-primary add-button" data-toggle="modal"  data-target="#myModal"><i class="fas fa-shopping-basket"> 10zł</i></button>
+						</div>
+					  </li>
+					</ul>
+			  </div>
+			  <div class="tab-pane" id="others">
+				  <ul class="list-group">
+					  <li class="list-group-item">
+						<div class="row">
+							<div class="col-9">Frytki</div>
+							<div class="col-3"><button class="btn btn-primary add-button" data-toggle="modal"  data-target="#myModal"><i class="fas fa-shopping-basket"> 5 zł</i></button>
+						</div>
+					  </li>
+					  <li class="list-group-item">
+						<div class="row">
+							<div class="col-9">Sałatka z kurczakiem </div>
+							<div class="col-3"><button class="btn btn-primary add-button" data-toggle="modal"  data-target="#myModal"><i class="fas fa-shopping-basket"> 10zł</i></button>
+						</div>
+					  </li>
+					  <li class="list-group-item">
+						<div class="row">
+							<div class="col-9">Sałatka Cezar </div>
+							<div class="col-3"><button class="btn btn-primary add-button" data-toggle="modal"  data-target="#myModal"><i class="fas fa-shopping-basket"> 9 zł</i></button>
+						</div>
+					  </li>
+					  <li class="list-group-item">
+						<div class="row">
+							<div class="col-9">Hot-dog  </div>
+							<div class="col-3"><button class="btn btn-primary add-button" data-toggle="modal"  data-target="#myModal"><i class="fas fa-shopping-basket"> 7 zł</i></button>
+						</div>
+					  </li>
+					  <li class="list-group-item">
+						<div class="row">
+							<div class="col-9">Skrzydełka z kurczaka</div>
+							<div class="col-3"><button class="btn btn-primary add-button" data-toggle="modal"  data-target="#myModal"><i class="fas fa-shopping-basket"> 14zł</i></button>
+						</div>
+					  </li>
+					  <li class="list-group-item">
+						<div class="row">
+							<div class="col-9">Coca-cola/Fanta/Sprite</div>
+							<div class="col-3"><button class="btn btn-primary add-button" data-toggle="modal"  data-target="#myModal"><i class="fas fa-shopping-basket"> 5 zł</i></button>
+						</div>
+					  </li>
+				</ul>
+			  </div>
+			</div>
+	</div>
+    </div>
+    <!-- /#page-content-wrapper -->
+	
+  </div>
+  <!-- /#wrapper -->
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Menu Toggle Script -->
+  <script>
+    $("#menu-toggle").click(function(e) {
+      e.preventDefault();
+      $("#wrapper").toggleClass("toggled");
+    });
+  </script>
+ <!-- Modal -->
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title"></h4>
+		  <button type="button" class="close close-basket" data-dismiss="modal">&times;</button>
+        </div>
+        <div class="modal-body" >
+			<ul class="list-group">
+				<li class="list-group-item">
+					<div class="row">
+						<div class="col-6 product">
+						</div>
+						<div class="col-3 price">
+						</div>
+						<div class="form-group col-3"> 
+							<select class="form-control" id="amounts">
+							  <option selected>1</option>
+							  <option>2</option>
+							  <option>3</option>
+							  <option>4</option>
+							  <option>5</option>
+							</select>
+						</div>
+					</div>
+				</li>
+				<li class="list-group-item">
+					<div class="row sum-title">
+						<div class="col-6">
+						</div>
+						<div class="col-3">
+						Należność
+						</div>
+						<div class="col-3 sum">
+						</div>
+					</div>
+				</li>
+			</ul>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger przycisk" id="#basket-button" data-dismiss="modal">Do koszyka</button>
+        </div>
+      </div>
+      
+    </div>
+   </div>
+   </div>
+   <div class="modal fade" id="basketModal" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title">Podsumowanie zamówienia</h4>
+		  <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        <div class="modal-body" >
+			<ul class="list-group" id="sum-list">
+			</ul>
+			<div class="row podsumowanie">
+				<div class="col-6">
+				</div>
+				<div class="col-3 naleznosc">
+				</div>
+				<div class="col-3 amount">
+				</div>
+			</div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-success" id='dokasy' data-dismiss="modal" data-toggle="modal" data-target="#kasa-modal" >Do kasy</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+  <div class="modal fade" id="login-modal" role="dialog">
+		<div class="modal-dialog">
+		  <div class="modal-content">
+			<div class="modal-body">
+			<a href="#singup-modal" class="float-right btn btn-outline-primary" data-toggle="modal" data-dismiss="modal">Sign up</a>
+			<h4 class="card-title mb-4 mt-1">Sign in</h4>
+			<p>
+				<!--<div class="fb-login-button" data-width="" data-size="" data-button-type="" data-auto-logout-link="" data-use-continue-as="">Login via faceebok</div>-->
+				<div id="fejsik" class="btn btn-block btn-outline-primary fb-login-button" data-width="" data-size="large" data-button-type="login_with" data-auto-logout-link="false" data-use-continue-as="false"> <i class="fab fa-facebook-f"></i>  Login via facebook</div> 
+			</p>
+			<hr>
+			<form>
+			<div class="form-group">
+				<input name="" class="form-control" placeholder="Email or login" type="email" id="email">
+			</div> 
+			<div class="form-group">
+				<input class="form-control" placeholder="Enter password" type="password" id="password">
+			</div>                                    
+			<div class="row">
+				<div class="col-md-6">
+					<div class="form-group">
+						<button type="submit" class="btn btn-primary btn-block" id="login-button"> Login  </button>
+					</div> 
+				</div>
+				<div class="col-md-6 text-right">
+					<a class="small" href="#">Forgot password?</a>
+				</div>                        
+					
+			</div>                                                                
+		</form>
+		</div>
+		</div>
+	  </div>	
+	</div> 
+	<div class="modal fade" id="singup-modal" role="dialog">
+		<div class="modal-dialog">
+		  <div class="modal-content">
+			<div class="modal-body">
+				<h4 class="card-title mb-4 mt-1">Sign up</h4>
+				<form>
+				<div class="form-group">
+					<input name="" class="form-control" id="name" placeholder="Your name" type="text">
+				</div> 
+				<div class="form-group">
+					<input name="" class="form-control" id="surname" placeholder="Your surname" type="text">
+				</div> 
+				<div class="form-group">
+					<input name="" class="form-control" id="phone" placeholder="Your phone number" type="tel">
+				</div> 
+				<div class="form-group">
+					<input name="" class="form-control" id="userEmail" placeholder="Your email" type="email">
+				</div>  
+				<div class="form-group">
+					<input class="form-control" id="userPass" placeholder="Your password" type="password">
+				</div>    
+				<div class="row">
+					<div class="col-md-6">
+						<div class="form-group">
+							<button type="submit" class="btn btn-primary btn-block" id="register" data-dismiss="modal"> Create account  </button>
+						</div> 
+					</div>                                         
+				</div>                                                                
+				</form>
+		</div>
+		</div>
+	  </div>	
+	</div> 
+	<div class="modal fade" id="kasa-modal" role="dialog">
+		<div class="modal-dialog modal-lg">
+		  <div class="modal-content">
+			<div class="modal-body">
+				<h4 class="card-title mb-4 mt-1">Płatność</h4>
+				<hr>
+				<div class="row">
+					<div class="col-md-9">
+						<form>
+							<h4>Dane osobowe</h3>
+							<div class="form-group">
+								<input name="" class="form-control" placeholder="Imię" type="text" id='imie'>
+							</div> 
+							<div class="form-group">
+								<input class="form-control" placeholder="Nazwisko" type="text" id='nazwisko'>
+							</div>       
+							<div class="form-group">
+								<input name="" class="form-control" placeholder="Adres e-mail" type="email" id='mail'>
+							</div> 
+							<div class="form-group">
+								<input name="" class="form-control" placeholder="Numer telefonu" type="phone" id='telefon'>
+							</div> 
+							<div class="form-group">
+								<input class="form-control" placeholder="Godzina odbioru" type="datetime" id='godzina'>
+							</div>    
+							<div class="dane-zamowienia">
+							<h4>Dane zamówienia</h4>
+							</div>
+							<div class="row" style="margin-top: 1.2rem">
+								<div class="col-md-9">
+									<div class="form-group">
+										<form action="https://secure.paylane.com/order/cart.html" class ="pep_form" method="post" name="pep_form">
+										<input type="hidden" name="amount" id="amount"value="19.99">
+										<input type="hidden" name="currency" id="currency" value="PLN">
+										<input type="hidden" name="merchant_id" id="merchant_id" value="c1a57b4a5165e12939990a8a9c216af2">
+										<input type="hidden" name="description" id="description" value="TR001" />
+										<input type="hidden" name="transaction_description" id=transaction_description" value="New transaction" />
+										<input type="hidden" name="transaction_type" id="transaction_type" value="S">
+										<input type="hidden" name="back_url" id="back_url" value="http://johns-shop.com/purchased">
+										<input type="hidden" name="language" id="lang" value="pl">
+										<input type="hidden" name="hash" id="hash" value="6926ed14d1ae4d8eb2350d3c15e6a420e3bb7052" />
+										<input type="submit" class="btn btn-primary btn-block" value="Zapłać z Pep" id="pep"/>
+										</form>
+									</div> 
+								</div>                                          
+							</div>                                                                
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	  </div>	
+	</div> 
+
+  
+</div>
+<script>
+$("#register").click(function() {
+		var email = $('#userEmail');    
+        var pass = $('#userPass'); 
+		var name = $('#name');
+		var surname = $('#surname');
+		var phone = $('#phone');
+		if(email.val() && pass.val()){
+			firebase.auth().createUserWithEmailAndPassword(email.val(), pass.val()).then(function(user){
+			db.collection("users").add({
+				first: name.val(),
+				last: surname.val(),
+				phone: phone.val(),
+				email: email.val()
+				})
+				.then(function(docRef) {
+					console.log("Document written with ID: ", docRef.id);
+				})
+				.catch(function(error) {
+					console.log('there was an error');
+					var errorCode = error.code;
+					var errorMessage = error.message;
+					console.log(errorCode + ' - ' + errorMessage);
+					console.log(email.val())
+				})
+			})
+		}
+})
+$("#login-button").click(function() {
+	var email = $('#email');    
+        var pass = $('#password'); 
+		if(email.val() && pass.val()){
+
+		firebase.auth().signInWithEmailAndPassword(email.val(), pass.val()).catch(function() { alert("blont") }).then(function(){
+			sessionStorage.setItem("zaloguj", "WYLOGUJ")
+			$('#login-modal').modal('hide')
+			$('#zaloguj').text(sessionStorage.getItem("zaloguj"))
+			$('#zaloguj').attr('href', "dane-modal")
+			console.log("Zalogowano użytkownika")
+			sessionStorage.setItem("email", email.val())
+			}).then(function(docRef) {
+				db.collection('users').where('email', '==', email.val())
+				.get()
+				.then(function(querySnapshot) {
+					querySnapshot.forEach(function(doc) {
+						sessionStorage.setItem("imie",doc.data(0).first)
+						sessionStorage.setItem("nazwisko", doc.data(0).last)
+						sessionStorage.setItem("telefon", doc.data(0).phone)
+					});
+				})
+				.catch(function(error) {
+				console.log("Error getting documents: ", error);
+				});
+			})
+			.catch(function(error) {
+			console.log('there was an error');
+			var errorCode = error.code;
+			var errorMessage = error.message;
+			console.log(errorCode + "  - " + errorMessage);
+			console.log(email.val())
+			})
+		}
+
+});
+$("#login-modal").on("hidden.bs.modal", function () {
+		    $(this).find('input[type=password], input[type=email]').val('');
+})
+$('#zaloguj').on('click', function() {
+	if ($(this).text() == 'WYLOGUJ') {
+		firebase.auth().signOut()
+		sessionStorage.setItem("token", null)
+		sessionStorage.setItem("email","")
+		sessionStorage.setItem("imie", "")
+		sessionStorage.setItem("nazwisko", "")
+		sessionStorage.setItem("telefon","")
+		sessionStorage.setItem("zaloguj", "ZALOGUJ")
+		$(this).text("ZALOGUJ")
+		$(this).attr('href', '#login-modal')
+		
+	}
+});
+$("#fejsik").on('click', function() {
+	firebase.auth().signInWithRedirect(provider);
+});
+
+$("#kasa-modal").on("hidden.bs.modal", function () {
+		    $(this).find('input[type=password], input[type=email], input[type=datetime], input[type=phone]').val('');
+			$("div").remove(".zamowienie");
+})
+
+
+
+</script>
+
+
+
+   
+</body>
+
+</html>
