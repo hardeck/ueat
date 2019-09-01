@@ -1,0 +1,123 @@
+body {
+  overflow-x: hidden;
+  background-image: url(../img/tlo.jpg);
+  background-size: cover;
+}
+
+.sum-title {
+	font-weight: bold;
+}
+.podsumowanie {
+	font-weight: bold;
+}
+.basket {
+    line-height: 15px;
+    font-size: 10px;
+    padding: 0px 4px;
+    border-radius: 100%;
+    background-color: black;
+    color: white;
+    box-shadow: 0 1px 0 rgba(0, 0, 0, 0.6);
+}
+#menu {
+	opacity: 0.7; 	
+}
+.bg-dark {
+	opacity: 0.8;
+}
+.nav-item {
+	padding-right: 10px;
+	font-weight: bold;
+	
+}
+.menu-head {
+	color: white;
+	 	
+}
+.container-fluid {
+	padding-top: 2rem;
+	padding-bottom: 2rem;
+}
+.channel {
+	background-color: white;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: 90%;
+	border: 1px solid #DADADA;
+	cursor: pointer;
+	float: left;
+	height: 100px;
+	margin-right: 4px;
+	margin-top: 4px;
+	padding: 5px;
+	position: relative;
+	width: 127px;
+	z-index: 4;
+}
+#menu-tabs {
+	background-color: black;
+	opacity: 1;
+}
+#home {
+	padding: 4rem 2rem;
+}
+
+#aboutus {
+	font-weight: bold;
+	font-size: 1.2rem;
+	color: white;
+	
+}
+#main_head {
+	font-size: 4rem;
+	font-weight: 900;
+	text-align: center;
+	color: white;
+}
+
+#sidebar-wrapper {
+  min-height: 100vh;
+  margin-left: -15rem;
+  -webkit-transition: margin .25s ease-out;
+  -moz-transition: margin .25s ease-out;
+  -o-transition: margin .25s ease-out;
+  transition: margin .25s ease-out;
+}
+
+#sidebar-wrapper .sidebar-heading {
+  padding: 0.875rem 1.25rem;
+  font-size: 1.2rem;
+}
+
+#sidebar-wrapper .list-group {
+  width: 15rem;
+}
+
+#page-content-wrapper {
+  min-width: 100vw;
+}
+
+#wrapper.toggled #sidebar-wrapper {	
+  margin-left: 0;
+}
+
+@media (min-width: 768px) {
+  #sidebar-wrapper {
+    margin-left: 0;
+  }
+
+  #page-content-wrapper {
+    min-width: 0;
+    width: 100%;
+	font-weight: bold;
+	font-size: 1.2rem;
+	
+  }
+
+  #wrapper.toggled #sidebar-wrapper {
+    margin-left: -15rem;
+  }
+}
+
+
+
