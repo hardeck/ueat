@@ -133,4 +133,7 @@ $(document).ready(function() {
                        var errorMessage = error.message;
                        var credential = error.credential;
                        });
+ $("#sidebar-wrapper a").click(function(e) {
+    $("#wrapper").removeClass("toggled");
+  });
 });
