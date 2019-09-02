@@ -133,7 +133,23 @@ $(document).ready(function() {
                        var errorMessage = error.message;
                        var credential = error.credential;
                        });
- $("#sidebar-wrapper a").click(function(e) {
-    $("#wrapper").removeClass("toggled");
+ $("#sidebar-wrapper a#contact-link").click(function(e) {
+    $("#wrapper").toggleClass("toggled");
+    $("html, body").animate({scrollTop: $("#contact").offset().top});
+  });
+ $("#sidebar-wrapper a#menu-link").click(function(e) {
+    $("#wrapper").toggleClass("toggled");
+    $("html, body").animate({scrollTop: $("#menu").offset().top});
+  });
+$("#sidebar-wrapper a#home-link").click(function(e) {
+    $("#wrapper").toggleClass("toggled");
+    $("html, body").animate({scrollTop: $("#home").offset().top});
+  });
+$("#sidebar-wrapper a#aboutus-link").click(function(e) {
+    $("#wrapper").toggleClass("toggled");
+    $("html, body").animate({scrollTop: $("#aboutus").offset().top});
   });
 });
+
+
+
